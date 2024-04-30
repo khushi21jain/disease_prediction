@@ -58,3 +58,4 @@ symptoms = []
 symptoms = read_input_until_double_enter()
 
 predict_disease(symptoms)
+print("this is a computer generated prediction, reach to nearest doctor for safety purpose!!")
