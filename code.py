@@ -1,4 +1,29 @@
-def predict_disease(symptoms):
+def predict_disease(symptoms):import socket
+
+class EthernetConnection:
+    def __init__(self, address, website):
+        self.location = address
+        self.website = website
+        
+    def establish_connection(self):
+        try:
+            # Create a socket object
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            
+            # Get local machine name
+            host = socket.gethostbyname(self.website)
+            
+            # Connection to hostname on the port
+            s.connect((host, 80))
+            
+            print("Connected to", self.website, "on location", self.location)
+        except socket.error as err:
+            print("Socket creation failed with error %s" %(err))
+
+# Establish Ethernet connection at the specified location and website
+ethernet_connection = EthernetConnection("4495 Main Street, Buffalo, NY 14228", "www.aicom.univer.se")
+ethernet_connection.establish_connection()
+
     diseases = ["chickenpox", "cold", "diabetes", "malaria", "migraine"]
 
     common_chickenpox_symptoms = {"red spots", "malaise", "lathrgy", "itching","loss of appetite","mild fever","Swelled Lymphes Nodes","skin rashes"}
